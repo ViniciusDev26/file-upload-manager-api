@@ -31,14 +31,14 @@ interface GeneratePutPresignedUrlParams {
   contentType: string;
   contentLength?: number;
 }
-export const generatePutPresignedUrl = async ({key, contentType}: GeneratePutPresignedUrlParams) => {
+export const generatePutPresignedUrl = async ({key, contentType, contentLength}: GeneratePutPresignedUrlParams) => {
   const url = await getSignedUrl(
     r2,
     new PutObjectCommand({
       Bucket: env.CLOUDFLARE_R2_BUCKET,
       Key: key,
       ContentType: contentType,
-      ContentLength: 1024 * 1024
+      ContentLength: contentLength
     }),
     {
       expiresIn: 600

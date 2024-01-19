@@ -1,15 +1,11 @@
-# backend
+# Fule Uploader Manager Tool
 
-To install dependencies:
+## Description:
+Ferramenta para upload temporário de arquivos para compartilhamento
 
-```bash
-bun install
-```
 
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.0.23. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+## Stack
+- Bun
+- Cloudflare R2
+- Fastify
+- Typescript
