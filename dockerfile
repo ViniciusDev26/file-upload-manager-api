@@ -1,16 +1,15 @@
-FROM oven/bun:1
+FROM node:20-alpine
 
 WORKDIR /app
-COPY package.json .
-COPY bun.lockb .
-COPY prisma prisma
+COPY package*.json .
 
-RUN bun install
-RUN bun prisma generate
-RUN bun prisma migrate deploy
+RUN npm ci
 
 COPY . .
 
+RUN npm run build
+RUN npx prisma generate
+
 EXPOSE 3000
 
-CMD ["bun", "start"]
+CMD ["npm", "run",  "start"]

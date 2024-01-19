@@ -1,9 +1,9 @@
 {
   "name": "backend",
   "module": "index.ts",
-  "type": "module",
   "scripts": {
-    "start": "bun src/http/server.ts",
+    "build": "tsc",
+    "start": "npx prisma migrate deploy && node dist/http/server.js",
     "dev": "bun --watch src/http/server.ts"
   },
   "devDependencies": {
@@ -17,9 +17,8 @@
     "@aws-sdk/client-s3": "^3.490.0",
     "@aws-sdk/s3-request-presigner": "^3.490.0",
     "@fastify/cors": "^8.5.0",
-    "@prisma/client": "5.8.1",
+    "@prisma/client": "^5.8.1",
     "fastify": "^4.25.2",
-    "pg": "^8.11.3",
     "zod": "^3.22.4"
   }
 }
